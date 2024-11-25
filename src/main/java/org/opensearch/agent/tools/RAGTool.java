@@ -92,8 +92,8 @@ public class RAGTool implements Tool {
                 	List<ModelTensors> mlModelOutputs = (List<ModelTensors>) o;
                 	Map<String, ?> dataAsMap = mlModelOutputs.get(0).getMlModelTensors().get(0).getDataAsMap();
                 	// Return the response field if it exists, otherwise return the whole response as json string.
-                	if (dataAsMap.containsKey(responseField)) {
-                    	    return dataAsMap.get(responseField);
+                	if (dataAsMap.containsKey("response")) {
+                    	    return dataAsMap.get("response");
                 	} else {
                       	   return StringUtils.toJson(dataAsMap);
                 	}
